@@ -20,7 +20,7 @@ namespace PutMeDown.iOS
 
         private void OnSensorChanged(CMAccelerometerData data, NSError error)
         {
-            var change = new SensorChange(data.Acceleration.X, data.Acceleration.Y, data.Acceleration.Z);
+			var change = new SensorChange(Math.Abs(data.Acceleration.X * 10), Math.Abs(data.Acceleration.Y * 10), Math.Abs(data.Acceleration.Z * 10));;
             RaiseChange(change);
         }
 

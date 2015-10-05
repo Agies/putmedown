@@ -13,9 +13,11 @@ namespace PutMeDown.iOS
 
         public void Play(string message)
         {
+			if (_speaker.Speaking)
+				return;
             var speechUtterance = new AVSpeechUtterance(message)
                                   {
-                                      Rate = AVSpeechUtterance.MaximumSpeechRate / 4,
+                                      Rate = AVSpeechUtterance.MaximumSpeechRate / 5,
                                       Voice = AVSpeechSynthesisVoice.FromLanguage("en-US"),
                                       Volume = 1f,
                                       PitchMultiplier = 1.0f
