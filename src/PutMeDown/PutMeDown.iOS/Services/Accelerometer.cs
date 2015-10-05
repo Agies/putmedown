@@ -6,7 +6,7 @@ namespace PutMeDown.iOS
 {
     public class Accelerometer : IAccelerometer
     {
-        private CMMotionManager _motionManager;
+        private readonly CMMotionManager _motionManager;
 
         public Accelerometer()
         {

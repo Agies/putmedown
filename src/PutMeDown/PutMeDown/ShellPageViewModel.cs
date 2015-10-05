@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
-using GalaSoft.MvvmLight;
-using Xamarin.Forms;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace PutMeDown
 {
@@ -82,6 +82,17 @@ namespace PutMeDown
         public void RestoreState(IDictionary<string, object> properties)
         {
             
+        }
+    }
+
+    public class ViewModelBase : INotifyPropertyChanged
+    {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void RaisePropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null) handler(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
